@@ -1,6 +1,6 @@
 FROM ubuntu:21.04
 
-AUTHOR colakatz
+MAINTAINER colakatz
 
 # Var for first config
 # Server Name
