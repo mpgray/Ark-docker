@@ -151,6 +151,7 @@ GID of the user used. Owner of the volume /ark
   - Updated docker-compose.yml to remove unnecessary quotes (Pull Request on TuRz4M/ARk-Docker by nordcomputer on Github)
   - Fixed crontab to preserve environment variables (Pull Request on TuRz4M/ARk-Docker by krobertson on Github)
   - Add /cluster volume, so you can have different docker images running in a cluster
+  - Updated default branch from master to main
 
 ## Original Changelog
 + 1.0 : 
