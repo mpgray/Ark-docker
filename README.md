@@ -147,6 +147,7 @@ GID of the user used. Owner of the volume /ark
 ## Colakatz Changelog
 + 1.0-colakatz :
   - First Update after 5 years.
+  - Updated based image from Ubuntu 14.04 to Ubuntu 21.04 (note will look into changing to Alpine in future)
   - Updated Ark Server Tools 1.6.57
   - Updated docker-compose.yml to remove unnecessary quotes (Pull Request on TuRz4M/ARk-Docker by nordcomputer on Github)
   - Fixed crontab to preserve environment variables (Pull Request on TuRz4M/ARk-Docker by krobertson on Github)

@@ -36,7 +36,7 @@ ENV GID 1000
 
 # Install dependencies 
 RUN apt-get update &&\ 
-    apt-get install -y curl lib32gcc1 lsof git
+    apt-get install -y curl lib32gcc1-s1 lsof git
 
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
