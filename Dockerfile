@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:21.04
 
-MAINTAINER TuRzAm
+AUTHOR colakatz
 
 # Var for first config
 # Server Name
@@ -12,13 +12,13 @@ ENV SERVERPASSWORD ""
 # Admin password
 ENV ADMINPASSWORD "adminpassword"
 # Nb Players
-ENV NBPLAYERS 70
+ENV NBPLAYERS 30
 # If the server is updating when start with docker start
 ENV UPDATEONSTART 1
 # if the server is backup when start with docker start
 ENV BACKUPONSTART 1
 #  Tag on github for ark server tools
-ENV GIT_TAG v1.5
+ENV GIT_TAG v1.6.57
 # Server PORT (you can't remap with docker, it doesn't work)
 ENV SERVERPORT 27015
 # Steam port (you can't remap with docker, it doesn't work)
@@ -27,6 +27,8 @@ ENV STEAMPORT 7778
 ENV BACKUPONSTOP 0
 # If the server warn the players before stopping
 ENV WARNONSTOP 0
+# Number of Players allowed on the server at once.
+ENV NBPLAYERS 30
 # UID of the user steam
 ENV UID 1000
 # GID of the user steam
@@ -59,7 +61,8 @@ COPY arkmanager-user.cfg /home/steam/arkmanager.cfg
 RUN touch /root/.bash_profile
 RUN chmod 777 /home/steam/run.sh
 RUN chmod 777 /home/steam/user.sh
-RUN mkdir  /ark
+RUN mkdir /ark &&\
+    mkdir /cluster
 
 
 # We use the git method, because api github has a limit ;)
@@ -99,6 +102,7 @@ EXPOSE ${STEAMPORT} 32330 ${SERVERPORT}
 EXPOSE ${STEAMPORT}/udp ${SERVERPORT}/udp
 
 VOLUME  /ark 
+VOLUME  /cluster
 
 # Change the working directory to /arkd
 WORKDIR /ark

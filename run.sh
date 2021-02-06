@@ -63,8 +63,29 @@ fi
 CRONNUMBER=`grep -v "^#" /ark/crontab | wc -l`
 if [ $CRONNUMBER -gt 0 ]; then
 	echo "Loading crontab..."
+	# Generate the crontab with the necessary environment variables added.
+	(
+		cat <<EOF
+SESSIONNAME=$SESSIONNAME
+SERVERMAP=$SERVERMAP
+SERVERPASSWORD=$SERVERPASSWORD
+ADMINPASSWORD=$ADMINPASSWORD
+SERVERPORT=$SERVERPORT
+STEAMPORT=$STEAMPORT
+BACKUPONSTART=$BACKUPONSTART
+UPDATEONSTART=$UPDATEONSTART
+BACKUPONSTOP=$BACKUPONSTOP
+WARNONSTOP=$WARNONSTOP
+TZ=$TZ
+NBPLAYER=$NBPLAYER
+UID=$UID
+GID=$GID
+EOF
+	) > /tmp/steam.crontab
+	cat /ark/crontab >> /tmp/steam.crontab
+	
 	# We load the crontab file if it exist.
-	crontab /ark/crontab
+	crontab /tmp/steam.crontab
 	# Cron is attached to this process
 	sudo cron -f &
 else

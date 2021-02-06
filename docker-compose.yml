@@ -1,18 +1,20 @@
 ark:
   container_name: ark
-  image: turzam/ark
+  image: colakatz/ark
   environment:
     - SESSIONNAME=Ark Docker
     - SERVERMAP=TheIsland
-    - SERVERPASSWORD="" 
+    - SERVERPASSWORD=
     - ADMINPASSWORD=adminpassword
     - BACKUPONSTART=1
     - UPDATEONSTART=1
-    - TZ=Europe/Paris
+    - TZ=America/Toronto
+    - NBPLAYER=30
     - GID=1000
     - UID=1000
   volumes:
     - /my/path/to/ark:/ark
+    - /my/path/to/cluster:/cluster
   ports:
    - 7778:7778/udp
    - 7778:7778
