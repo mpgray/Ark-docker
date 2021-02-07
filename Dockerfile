@@ -34,9 +34,10 @@ ENV UID 1000
 # GID of the user steam
 ENV GID 1000
 
-# Install dependencies 
-RUN apt-get update &&\ 
-    apt-get install -y sudo curl lib32gcc-s1 lsof git
+# Install dependencies
+RUN dpkg --add-architecture i386 &&\
+    apt-get update &&\
+    apt-get install -y sudo curl lib32gcc-s1 lsof git wget libgl1-mesa-glx:i386
 
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
@@ -44,10 +45,10 @@ RUN sed -i.bkp -e \
 	/etc/sudoers
 
 # Run commands as the steam user
-RUN adduser \ 
-	--disabled-login \ 
-	--shell /bin/bash \ 
-	--gecos "" \ 
+RUN adduser \
+	--disabled-login \
+	--shell /bin/bash \
+	--gecos "" \
 	steam
 # Add to sudo group
 RUN usermod -a -G sudo steam
@@ -68,11 +69,11 @@ RUN mkdir /ark &&\
 # We use the git method, because api github has a limit ;)
 RUN  git clone https://github.com/FezVrasta/ark-server-tools.git /home/steam/ark-server-tools
 WORKDIR /home/steam/ark-server-tools/
-RUN  git checkout $GIT_TAG 
-# Install 
+RUN  git checkout $GIT_TAG
+# Install
 WORKDIR /home/steam/ark-server-tools/tools
-RUN chmod +x install.sh 
-RUN ./install.sh steam 
+RUN chmod +x install.sh
+RUN ./install.sh steam
 
 # Allow crontab to call arkmanager
 RUN ln -s /usr/local/bin/arkmanager /usr/bin/arkmanager
@@ -85,23 +86,23 @@ COPY instance.cfg /etc/arkmanager/instances/main.cfg
 
 RUN chown steam -R /ark && chmod 755 -R /ark
 
-#USER steam 
+#USER steam
 
 # download steamcmd
-RUN mkdir /home/steam/steamcmd &&\ 
-	cd /home/steam/steamcmd &&\ 
-	curl http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz 
+RUN mkdir /home/steam/steamcmd &&\
+	cd /home/steam/steamcmd &&\
+	curl http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz
 
 
 # First run is on anonymous to download the app
 # We can't download from docker hub anymore -_-
-#RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
 
 EXPOSE ${STEAMPORT} 32330 ${SERVERPORT}
 # Add UDP
 EXPOSE ${STEAMPORT}/udp ${SERVERPORT}/udp
 
-VOLUME  /ark 
+VOLUME  /ark
 VOLUME  /cluster
 
 # Change the working directory to /arkd
