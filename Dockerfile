@@ -34,6 +34,10 @@ ENV UID 1000
 # GID of the user steam
 ENV GID 1000
 
+# Install dependencies
+RUN apt-get update &&\
+    apt-get install -y sudo
+
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
 	's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers \
