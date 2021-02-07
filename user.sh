@@ -11,6 +11,10 @@ if [ ! "$(id -g steam)" -eq "$GID" ]; then
 	groupmod -o -g "$GID" steam ;
 fi
 
+# Add to Path
+PATH=$PATH:/home/steam/ark-server-tools/:/home/steam/ark-server-tools/tools/
+
+
 # Put steam owner of directories (if the uid changed, then it's needed)
 chown -R steam:steam /ark /home/steam
 
