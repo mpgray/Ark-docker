@@ -36,7 +36,7 @@ ENV GID 1000
 
 # Install dependencies
 RUN apt-get update &&\
-    apt-get install -y sudo
+    apt-get install -y sudo git curl wget
 
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
