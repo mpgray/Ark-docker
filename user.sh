@@ -18,4 +18,4 @@ chown -R steam:steam /ark /home/steam
 chmod -R 777 /root/
 
 # Launch run.sh with user steam (-p allow to keep env variables)
-sudo -E -u steam /home/steam/run.sh
+sudo --preserve-env --user=steam /home/steam/run.sh
