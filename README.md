@@ -6,7 +6,7 @@ This image uses [Ark Server Tools](https://github.com/FezVrasta/ark-server-tools
 
 This version was forked from TuRz4m/Ark-Docker is updated and maintained by colakatz
 
-__Don't forget to use `docker pull colakatz/ark` to get the latest version of the image__
+__Don't forget to use `docker pull motey/arkserver` to get the latest version of the image__
 
 ## Features
  - Easy install (no steamcmd / lib32... to install)

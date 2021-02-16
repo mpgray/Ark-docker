@@ -1,6 +1,6 @@
 FROM cm2network/steamcmd:root
 
-MAINTAINER colakatz
+MAINTAINER motey
 
 # Var for first config
 # Server Name

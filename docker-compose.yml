@@ -1,6 +1,6 @@
 ark:
   container_name: ark
-  image: colakatz/ark
+  image: motey/arkserver
   environment:
     - SESSIONNAME=Ark Docker
     - SERVERMAP=TheIsland
