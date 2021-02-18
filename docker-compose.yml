@@ -9,7 +9,7 @@ ark:
     - BACKUPONSTART=1
     - UPDATEONSTART=1
     - TZ=America/Toronto
-    - NBPLAYER=30
+    - NBPLAYERS=30
     - GID=1000
     - UID=1000
   volumes:
