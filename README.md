@@ -145,6 +145,8 @@ GID of the user used. Owner of the volume /ark
 
 ---
 ## Colakatz Changelog
++ 1.2-motey
+  - Fix crontab typo
 + 1.1-motey
   - Fix missing arkversion file check. This issue always triggered a reinstall of the gamefiles on server start
   - setup github action image build pipeline
