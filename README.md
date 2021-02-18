@@ -4,7 +4,7 @@ Docker build for managing an ARK: Survival Evolved server.
 
 This image uses [Ark Server Tools](https://github.com/FezVrasta/ark-server-tools) to manage an ark server.
 
-This version was forked from TuRz4m/Ark-Docker is updated and maintained by colakatz
+This version was forked from colakatz/Ark-docker via TuRz4m/Ark-Docker is updated and maintained by motey.
 
 __Don't forget to use `docker pull motey/arkserver` to get the latest version of the image__
 
