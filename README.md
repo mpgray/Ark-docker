@@ -144,21 +144,9 @@ GID of the user used. Owner of the volume /ark
 ## Known issues
 
 ---
-## Colakatz Changelog
-+ 1.2-motey
-  - Fix crontab typo
-+ 1.1-motey
-  - Fix missing arkversion file check. This issue always triggered a reinstall of the gamefiles on server start
-  - setup github action image build pipeline
-+ 1.0-colakatz :
-  - First Update after 5 years.
-  - Updated based image from Ubuntu 14.04 to Ubuntu 21.04 (note will look into changing to Alpine in future)
-  - Updated Ark Server Tools 1.6.57
-  - Updated docker-compose.yml to remove unnecessary quotes (Pull Request on TuRz4M/ARk-Docker by nordcomputer on Github)
-  - Fixed crontab to preserve environment variables (Pull Request on TuRz4M/ARk-Docker by krobertson on Github)
-  - Add /cluster volume, so you can have different docker images running in a cluster
-  - Updated default branch from master to main
 
+  
+  
 ## Original Changelog
 + 1.0 : 
   - Initial image : works with Ark Server tools 1.3
@@ -183,3 +171,18 @@ GID of the user used. Owner of the volume /ark
     - Show a spinner when updating
   - Add UID & GID to set the uid & gid of the user used in the container (and permissions on the volume /ark)
 
+## Fork Changelog
+
++ 1.0-colakatz :
+  - First Update after 5 years.
+  - Updated based image from Ubuntu 14.04 to Ubuntu 21.04 (note will look into changing to Alpine in future)
+  - Updated Ark Server Tools 1.6.57
+  - Updated docker-compose.yml to remove unnecessary quotes (Pull Request on TuRz4M/ARk-Docker by nordcomputer on Github)
+  - Fixed crontab to preserve environment variables (Pull Request on TuRz4M/ARk-Docker by krobertson on Github)
+  - Add /cluster volume, so you can have different docker images running in a cluster
+  - Updated default branch from master to main
++ 1.1-motey
+  - Fix missing arkversion file check. This issue always triggered a reinstall of the gamefiles on server start
+  - setup github action image build pipeline
++ 1.2-motey
+  - Fix crontab typo
