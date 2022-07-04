@@ -79,6 +79,9 @@ COPY instance.cfg /etc/arkmanager/instances/main.cfg
 
 RUN chown steam -R /ark && chmod 755 -R /ark
 
+# Fix permissions for config files
+RUN chown steam -R /etc/arkmanager/instances && chmod 755 -R /etc/arkmanager/instances
+
 EXPOSE ${STEAMPORT} 32330 ${SERVERPORT}
 # Add UDP
 EXPOSE ${STEAMPORT}/udp ${SERVERPORT}/udp
