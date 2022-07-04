@@ -36,8 +36,8 @@ cp /home/steam/crontab /ark/template/crontab
 [ ! -d /ark/log ] && mkdir /ark/log
 [ ! -d /ark/backup ] && mkdir /ark/backup
 [ ! -d /ark/staging ] && mkdir /ark/staging
-[ ! -L /ark/Game.ini ] && ln -s server/ShooterGame/Saved/Config/LinuxServer/Game.ini Game.ini
-[ ! -L /ark/GameUserSettings.ini ] && ln -s server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini GameUserSettings.ini
+[ ! -L /ark/Game.ini ] && ln -sf server/ShooterGame/Saved/Config/LinuxServer/Game.ini Game.ini
+[ ! -L /ark/GameUserSettings.ini ] && ln -sf server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini GameUserSettings.ini
 [ ! -f /ark/crontab ] && cp /ark/template/crontab /ark/crontab
 
 
