@@ -60,7 +60,7 @@ RUN mkdir /ark &&\
 
 
 # We use the git method, because api github has a limit ;)
-RUN  git clone https://github.com/FezVrasta/ark-server-tools.git /home/steam/ark-server-tools
+RUN  git clone https://github.com/arkmanager/ark-server-tools.git /home/steam/ark-server-tools
 WORKDIR /home/steam/ark-server-tools/
 RUN  git checkout $GIT_TAG
 # Install
